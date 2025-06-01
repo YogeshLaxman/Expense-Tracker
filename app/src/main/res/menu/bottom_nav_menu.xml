@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_files"
+        android:icon="@drawable/ic_file_upload"
+        android:title="Files" />
+
+    <item
+        android:id="@+id/navigation_review"
+        android:icon="@drawable/ic_review"
+        android:title="Review" />
+
+    <item
+        android:id="@+id/navigation_tags"
+        android:icon="@drawable/ic_tag"
+        android:title="Tags" />
+
+    <item
+        android:id="@+id/navigation_export"
+        android:icon="@drawable/ic_download"
+        android:title="Export" />
+</menu> 
