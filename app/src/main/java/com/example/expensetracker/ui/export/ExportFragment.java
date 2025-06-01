@@ -149,7 +149,7 @@ public class ExportFragment extends Fragment {
                     }
 
                     List<Tag> tags = new ArrayList<>();
-                    for (Transaction transaction : transactions) {
+                        for (Transaction transaction : transactions) {
                         application.getRepository().getTagsForTransaction(transaction.getId())
                             .observe(getViewLifecycleOwner(), tagList -> {
                                 tags.addAll(tagList);

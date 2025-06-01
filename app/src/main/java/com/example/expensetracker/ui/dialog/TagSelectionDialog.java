@@ -61,9 +61,9 @@ public class TagSelectionDialog extends DialogFragment {
             .setTitle(R.string.select_tags)
             .setView(binding.getRoot())
             .setPositiveButton(R.string.ok, (dialog, which) -> {
-                if (listener != null) {
+            if (listener != null) {
                     listener.onTagsSelected(new ArrayList<>(selectedTags));
-                }
+            }
             })
             .setNegativeButton(R.string.cancel, null)
             .create();

@@ -23,15 +23,15 @@ public class MainActivity extends AppCompatActivity {
         if (navHostFragment != null) {
             NavController navController = navHostFragment.getNavController();
             
-            AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.navigation_files,
-                    R.id.navigation_review,
-                    R.id.navigation_tags,
-                    R.id.navigation_export
-            ).build();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_files,
+                R.id.navigation_review,
+                R.id.navigation_tags,
+                R.id.navigation_export
+        ).build();
 
-            NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-            NavigationUI.setupWithNavController(binding.bottomNavView, navController);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(binding.bottomNavView, navController);
         }
     }
 

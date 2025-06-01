@@ -174,11 +174,11 @@ public class FilesFragment extends Fragment {
         try (InputStream inputStream = requireContext().getContentResolver().openInputStream(uri)) {
             if (inputStream != null) {
                 List<Transaction> transactions = CsvParser.parseTransactions(requireContext(), inputStream, uri.toString());
-                if (transactions.isEmpty()) {
-                    Toast.makeText(requireContext(), "No valid transactions found in the file",
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
+            if (transactions.isEmpty()) {
+                Toast.makeText(requireContext(), "No valid transactions found in the file",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
 
                 // Show loading indicator
                 requireActivity().runOnUiThread(() -> 
@@ -204,18 +204,18 @@ public class FilesFragment extends Fragment {
                         }
 
                         // Insert transactions
-                        application.getRepository().insertTransactions(transactions);
-                        
-                        // Create export history entry
-                        ExportHistory exportHistory = new ExportHistory(
-                            new Date(),
-                            uri.getLastPathSegment(),
-                            uri.toString(),
-                            "COMPLETED",
-                            transactions.size()
-                        );
-                        application.getRepository().insertExportHistory(exportHistory);
-                        
+            application.getRepository().insertTransactions(transactions);
+            
+            // Create export history entry
+            ExportHistory exportHistory = new ExportHistory(
+                new Date(),
+                uri.getLastPathSegment(),
+                uri.toString(),
+                "COMPLETED",
+                transactions.size()
+            );
+            application.getRepository().insertExportHistory(exportHistory);
+            
                         // Show success message on the main thread
                         requireActivity().runOnUiThread(() -> 
                             Toast.makeText(requireContext(), 

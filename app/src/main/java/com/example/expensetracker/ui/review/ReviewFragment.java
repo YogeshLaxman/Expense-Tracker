@@ -117,7 +117,7 @@ public class ReviewFragment extends Fragment {
 
     private void filterTransactions() {
         List<Transaction> filteredTransactions = new ArrayList<>(transactions);
-
+        
         // Filter by date range
         if (startDate != null && endDate != null) {
             filteredTransactions.removeIf(transaction -> {
@@ -125,7 +125,7 @@ public class ReviewFragment extends Fragment {
                 return transactionDate.before(startDate) || transactionDate.after(endDate);
             });
         }
-
+        
         // Filter by tags
         if (!selectedTags.isEmpty()) {
             // Create a copy of the list to avoid concurrent modification
@@ -149,8 +149,8 @@ public class ReviewFragment extends Fragment {
                             pagerAdapter.setTransactions(finalFilteredTransactions);
                             updatePendingCount();
                         }
-                    });
-            }
+            });
+        }
             return;
         }
 

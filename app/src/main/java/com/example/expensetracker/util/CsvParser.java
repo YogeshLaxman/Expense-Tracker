@@ -17,7 +17,7 @@ public class CsvParser {
 
     public static List<Transaction> parseTransactions(Context context, InputStream inputStream, String fileUri) {
         List<Transaction> transactions = new ArrayList<>();
-
+            
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             // Skip header row
             reader.readLine();
@@ -27,16 +27,16 @@ public class CsvParser {
                 String[] values = parseCSVLine(line);
                 if (values.length < 6) continue;
 
-                try {
+                    try {
                     Date date = DATE_FORMAT.parse(values[0]);
                     String description = values[2];
                     double amount = parseAmount(values[5]);
-
+                        
                     Transaction transaction = new Transaction(date, description, amount, values[1], fileUri);
-                    transactions.add(transaction);
+                        transactions.add(transaction);
                 } catch (Exception e) {
-                    // Skip invalid rows
-                    continue;
+                        // Skip invalid rows
+                        continue;
                 }
             }
         } catch (Exception e) {
